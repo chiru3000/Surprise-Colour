@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Happy Birthday 🎉</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      background: white;
+      font-family: sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .knife {
+      width: 100px;
+      margin-top: 20px;
+      cursor: pointer;
+    }
+
+    .arrow {
+      font-size: 24px;
+      animation: bounce 1s infinite;
+      margin-top: 10px;
+    }
+
+    .click-it {
+      font-size: 18px;
+      margin-top: 5px;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+  </style>
+</head>
+<body onclick="goToCut()">
+  <h1>HELLO</h1>
+  <div class="arrow">⬇️</div>
+  <img src="assets/knife.png" class="knife" alt="knife icon" />
+  <div class="click-it">click it</div>
+
+  <script>
+    function goToCut() {
+      window.location.href = "cut.html";
+    }
+  </script>
+</body>
+</html>

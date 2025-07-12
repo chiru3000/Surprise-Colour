@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Happy Birthday!</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: white;
+      font-family: monospace;
+      overflow-x: hidden;
+    }
+    .header, .footer {
+      text-align: center;
+      font-weight: bold;
+      font-size: 24px;
+      margin: 20px;
+    }
+    .ascii-art {
+      font-family: monospace;
+      white-space: pre;
+      line-height: 10px;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+      transform: scale(2.2);
+      transform-origin: top center;
+      transition: transform 1s ease-out;
+    }
+    .ascii-line {
+      white-space: pre;
+    }
+    .ascii-line span {
+      color: black;
+    }
+    .ascii-line .r { color: red; }
+    .ascii-line .g { color: green; }
+    .ascii-line .b { color: blue; }
+    .ascii-line .y { color: goldenrod; }
+    .ascii-line .p { color: purple; }
+    .ascii-line .c { color: darkcyan; }
+  </style>
+</head>
+<body>
+  <div class="header">-- HAPPY BIRTHDAY! --</div>
+  <div class="ascii-art" id="ascii">
+    <!-- Paste your colored ASCII here -->
+    <div class="ascii-line"><span class="r">██████</span><span class="g">▒▒▒▒▒▒▒▒▒▒</span><span class="b">██████</span></div>
+    <div class="ascii-line"><span class="y">▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒</span></div>
+    <div class="ascii-line"><span class="p">▒▒▒▒▒▒</span><span class="c">██████████</span><span class="p">▒▒▒▒▒▒</span></div>
+    <!-- etc -->
+  </div>
+  <div class="footer">Beautiful Cool Smart Di<br>by Chirag</div>
+  <audio autoplay loop>
+    <source src="assets/birthday_music.mp3" type="audio/mpeg">
+  </audio>
+  <script>
+    const ascii = document.getElementById("ascii");
+    let scale = 2.2;
+    window.addEventListener("scroll", () => {
+      const scrollY = window.scrollY;
+      const maxScroll = document.body.scrollHeight - window.innerHeight;
+      const minScale = 1;
+
+      const newScale = Math.max(minScale, scale - scrollY / maxScroll * (scale - minScale));
+      ascii.style.transform = `scale(${newScale})`;
+    });
+  </script>
+</body>
+</html>
